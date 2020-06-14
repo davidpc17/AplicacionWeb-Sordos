@@ -1,9 +1,9 @@
 <?php 
 
-require_once('../../../general/inc/config.php');
-require_once('../../../general/inc/function.php');
-require_once('../../../general/inc/session.php');
-require_once('../../../general/inc/SED.php');
+require_once('../general/inc/config.php');
+require_once('../general/inc/function.php');
+require_once('../general/inc/session.php');
+require_once('../general/inc/SED.php');
 
 //DEFINIR ENRUTADO A BACKEND
 
