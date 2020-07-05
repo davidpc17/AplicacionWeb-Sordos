@@ -1,5 +1,6 @@
 <?php
 //cargar complementos
+
 include('../controller/load.php');
 
 //use PHPMailer\PHPMailer\PHPMailer;
@@ -28,16 +29,7 @@ if($posicion_coincidencia === false){
   else{
   $encriptar =  SED::encryption($_POST['clave']); //METODO PAR ENCRIPTACION
   //$cc =$_POST['cedula'];
-$id_persona=$_POST['cedula'];
-$tipo_doc=$_POST['tipo_doc'];
-$p_nombre=$_POST['p_nombre'];
-$s_nombre=$_POST['s_nombre'];
-$p_apellido=$_POST['p_apellido'];
-$s_apellido=$_POST['s_apellido'];
-$fec_cumple=$_POST['fec_cumple'];
-$id_sexo=$_POST['sexo'];
-$celular=$_POST['celular'];
-$direccion=$_POST['direccion'];
+$nombre=$_POST['nombre'];
 $ciudad=$_POST['ciudad'];
 $name=$_POST['email'];
 $pass= $encriptar;
@@ -83,9 +75,9 @@ $comprar = $asociar['email'];
     $mensaje ="<font color='#FF0000'> usuario no registrado por que el ".$name."direccion de correo no existente por favor corraborar y volver a intentar";
     echo 'Mailer Error: ' . $mail->ErrorInfo;
   } else {
-  $sql= "INSERT INTO `persona`(`id_persona`, 'id_tipo_doc', `p_nombre`, `s_nombre`, `p_apelldio`, `s_apellido`, 'fec_cumple','id_sexo',`celular`, `direccion`, `id_ciudad`) VALUES ('$id_persona','$tipo_doc','$p_nombre','$s_nombre','$p_apellido','$s_apellido','$fec_cumple','$id_sexo',$celular','$direccion','$ciudad')";
+  $sql= "INSERT INTO `persona`('nombre', `id_ciudad`) VALUES ('$nombre','$ciudad')";
   ejecutar($sql);
-  $sql = INSERT INTO `user`(`email`, `clave`)  VALUES ('$name','$pass') ";
+  $sql = "INSERT INTO `user`(`email`, `clave`)  VALUES ('$name','$pass') ";
   ejecutar($sql);
     $mensaje ="<font color='#0BAF38'> Registro Completado</font>";
     }

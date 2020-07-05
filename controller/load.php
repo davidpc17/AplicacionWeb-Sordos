@@ -7,7 +7,7 @@ require_once('../general/inc/SED.php');
 
 //DEFINIR ENRUTADO A BACKEND
 
-$REGISTER="../back_end/register.php";
+$REGISTER="/back_end/register.php";
 $VALIDAR_LOGIN="../back_end/validar.php";
 
 
