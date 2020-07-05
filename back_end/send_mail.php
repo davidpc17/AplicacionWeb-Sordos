@@ -1,3 +1,58 @@
+$cadena_de_texto = $_POST['email'];
+$cadena_buscada ="@";	
+$posicion_coincidencia = strrpos($cadena_de_texto, $cadena_buscada);
+if($posicion_coincidencia === false){
+  $mensaje = "<font color='#FF0000'>Se es necesario un correo electronico lo que ha ingresado  ". $_POST['email'] . "   No es un correo electronico </font>";
+}else{
+
+  $uppercase =preg_match('@[A-Z]@', $_POST['clave']); 
+  $lowercase = preg_match('@[a-z]@', $_POST['clave']); 
+  $number = preg_match('@[0-9]@', $_POST['clave']); 
+  if(!$uppercase || !$lowercase || !$number || strlen($_POST['clave']) < 8) { 
+    $mensaje ='<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>Upps!</strong> Su clave debe contar con lo minimo con letras minusculas, mayuscula, numeros y tener mas de 8 caracteres.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+  </div>';
+  } 
+  else{
+
+
+
+
+    require_once 'PHPMailer/PHPMailerAutoload.php';
+    
+    $mail = new PHPMailer();
+    $mail->isSMTP();
+    $mail->SMTPAuth = true;
+    $mail->SMTPDebug = 0;
+    $mail->Debugoutput = 'html';
+    $mail->SMTPSecure = 'tls';
+    $mail->Host = 'smtp.gmail.com';
+    $mail->Port = '587';
+    
+    $mail->Username = 'electivaprogweb.luis@gmail.com';
+    $mail->Password = '19pruebaslp2019';	
+    
+    $mail->setFrom('electivaprogweb.luis@gmail.com', 'No-reply');
+    $mail->addAddress($name, $name);
+    $mail->addAddress($_POST['email'],$_POST['email']);     // Add a recipient
+    $mail->isHTML(true);                                  // Set email format to HTML
+    $mail->Subject = 'REGISTRO';
+    $mail->Body    = 'Usted se ha registrado satifactoriamente</b>';
+//  $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+    $mail->IsHTML(true);
+    
+
+  if(!$mail->send()) {
+
+
+
+
+
+
+
 
 
 

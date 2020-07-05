@@ -59,7 +59,7 @@ center; padding: 16px 0px;">
 
                                 <div class="field is-grouped">
                                     <div class="control">
-                                        <button class="button is-link" id="Registrar">Entrar </button>
+                                        <button class="button is-link" name="Registrar">Entrar </button>
                                     </div>
                                     <div class="control">
                                         <button class="button is-link is-light">Cancelar</button>
@@ -68,6 +68,7 @@ center; padding: 16px 0px;">
                                 <div class="field">
                                     <p>¿Ya tienes una cuenta? <a href="login2.php">Iniciar sesión</a></p>
                                 </div>
+                                <?php //echo $mensaje; ?>
                     </form>
                 </div>
             </div>
