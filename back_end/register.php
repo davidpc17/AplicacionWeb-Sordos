@@ -38,6 +38,7 @@ $comprar = $asociar['email'];
   $sql = "INSERT INTO `user`(`email`, `clave`)  VALUES ('$name','$pass') ";
   ejecutar($sql);  
   header( "refresh:0; ../file/register.php");
+  
   }
 }
 
