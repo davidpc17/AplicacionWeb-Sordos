@@ -1,4 +1,67 @@
-<?php require 'inc/header.php' ?>
+
+<?php
+require 'inc/header.php';  
+include('../controller/load.php');
+$obligatorio = 1;
+if ($obligatorio) $requerido = "required";
+else $requerido = "";
+if(isset($_POST['ok']))
+{
+  $u =strtolower($_POST['email']);
+
+    $p = $_POST['clave'];
+    $sql = "SELECT clave FROM user WHERE email ='$u'";
+  list($a,$asociar,$e)=select($sql);
+ 
+  $pass= $asociar['clave'];
+ $desencriptar = SED::decryption($pass); // METODO DE DESENCRiptado
+
+
+  $sql1= "SELECT * FROM user WHERE email = '$u'";
+list($a,$asociar,$e)=select($sql1);
+  $comprar = $asociar['id_estado'];
+  echo $comprar;
+ if($comprar == 1){
+    if ($p==$desencriptar) {
+header('location:../file/index.php');
+$_SESSION["clave"] = $desencriptar;
+$_SESSION["email"] = $u;
+}else{
+$erro = " <font color='#FF0000'> Usuario o Contraseña no validos";
+}
+}else{
+	header('location:../file/administrator.php');
+}
+
+
+}
+
+
+if(isset($_SESSION["email"]) && isset($_SESSION["clave"])){
+
+	$u = $_SESSION["email"];
+	$p = $_SESSION["clave"];
+    $sql = "SELECT clave FROM user WHERE email ='$u'";
+  list($a,$asociar,$e)=select($sql);
+ 
+  $pass= $asociar['clave'];
+ $desencriptar = SED::decryption($pass);
+	 $estado = $_SESSION["email"];
+  $sql1= "SELECT * FROM user WHERE email = '$estado'";
+list($a,$asociar,$e)=select($sql1);
+  $comprar = $asociar['id_estado'];
+  echo $comprar;
+  if($comprar == 1){
+    if ($p==$desencriptar) {
+header('location:../file/index.php');
+
+}
+}
+	
+}else{
+
+
+?>
 
 <section class="hero is-fullheight">
 
@@ -16,6 +79,7 @@ center; padding: 16px 0px;">
 						Plataforma web TESIS
 					</span>
 				</div>
+                <form action="" method="post">
                 <div class="box box_container">
                     <div class="columns is-centered"> 
                         <div class="column "> 
@@ -27,7 +91,7 @@ center; padding: 16px 0px;">
                                 <div class="field">
                                     <label for="" class="label">Correo Electronico</label>
                                     <div class="control has-icons-left">
-                                        <input type="email" placeholder="e.g. tucorreo@gmail.com" class="input" required>
+                                        <input type="email" name="email" id="email" placeholder="e.g. tucorreo@gmail.com" class="input" required>
                                         <span class="icon is-small is-left">
                                         <i class="fa fa-envelope"></i>
                                         </span>
@@ -36,7 +100,7 @@ center; padding: 16px 0px;">
                                 <div class="field">
                                     <label for="" class="label">Contraseña</label>
                                     <div class="control has-icons-left">
-                                        <input type="password" placeholder="*******" class="input" required>
+                                        <input type="password" name="clave" id="clave" placeholder="*******" class="input" required>
                                         <span class="icon is-small is-left">
                                         <i class="fa fa-lock"></i>
                                         </span>
@@ -45,7 +109,7 @@ center; padding: 16px 0px;">
                                 <div class="field is-grouped">
                                     <div class="control">
                                     
-                                        <button class="button is-link">Entrar </button>
+                                        <button class="button is-link" name="ok">Entrar </button>
                                     </div>
                                     <div class="control">
                                         <button class="button is-link is-light">Cancelar</button>
@@ -70,3 +134,6 @@ center; padding: 16px 0px;">
     </div>
 </div>
 </section>
+<?php
+}
+?>

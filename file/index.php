@@ -1,5 +1,13 @@
-<?php require 'inc/header.php' ?>
+<!--------------back end---------->
+<?php
 
+include('../controller/load.php');
+
+if(isset($_SESSION["email"]) && isset($_SESSION["clave"] )){
+?>
+
+<!------------- DISEÑO------------->
+<?php require 'inc/header.php' ?>
 <?php require 'inc/menu.php' ?>
 
 <section class="section">
@@ -55,7 +63,7 @@
           <br>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa.</p>
 
-    
+       
       </div>
       
       <video id="videoPlayer" class="video-js vjs-big-play-centered" data-setup="{}">
@@ -125,5 +133,11 @@
   </div>
 </div>
 </section>
-
 <?php require 'inc/footer.php'  ?>
+<?php
+}else{
+
+ header('location: ../file/login2.php');
+}
+
+?>

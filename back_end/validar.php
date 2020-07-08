@@ -11,7 +11,7 @@ $desencriptar = SED::decryption($_SESSION['clave']);
 echo $_SESSION['email'];
 // Funciona si la cookie de sesión fue aceptada
 if ($_SESSION['email'] && $desencriptar ){
- header('location:Drag-Drop-Completo/draganddrog.php') ;
+  header( "refresh:0; ../file/index.php");
 
 }
 else{
@@ -32,12 +32,13 @@ if(isset($_POST['ok']))
   $pass= $asociar['clave'];
 $desencriptar = SED::decryption($pass); // METODO DE DESENCRiptado
 if ($p==$desencriptar) {
-header('location:Drag-Drop-Completo/draganddrog.php');
+  header( "refresh:0; ../file/index.php");
 }else{
-echo " error verifique datos";
+echo '<script language="javascript">alert("usuario o clave invalida");</script>';
+header( "refresh:0; ../file/login2.php");
 }
 }
-}
+
 
 
 ?>

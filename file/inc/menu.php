@@ -146,7 +146,7 @@ center;">Universidad del Atlantico.</strong></p>
             </div>
           </a>
           <hr class="navbar-divider">
-          <a class="navbar-item" href="/documentation/overview/start/">
+          <a class="navbar-item" href="../back_end/out.php">
             <div class="level is-mobile">
               <div class="level-left">
                 <div class="level-item">
