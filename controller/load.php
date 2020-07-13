@@ -10,8 +10,6 @@ require_once('../general/inc/SED.php');
 $REGISTER="/back_end/register.php";
 $VALIDAR_LOGIN="../back_end/validar.php";
 
-
-
 //DEFINIR TABLAS BD
 $USER = `user`;
 $PERSONA= `persona`;

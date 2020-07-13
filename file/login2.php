@@ -1,6 +1,5 @@
-
 <?php
-require 'inc/header.php';  
+require 'inc/header.php';
 include('../controller/load.php');
 $obligatorio = 1;
 if ($obligatorio) $requerido = "required";
