@@ -85,7 +85,7 @@ list($a,$asociar,$e)=select($sql1);
 }
 ?>
 <?php require 'inc/header.php' ?>
-
+<title>Registro | SordosApp </title>
 <section class="hero is-fullheight">
 
 <div style="width: 100%; background: linear-gradient(to right, #1c3643 0%, #273b47 25%, #1e5372 100%); color: rgb(255, 255, 255); text-align: 
@@ -93,82 +93,77 @@ center; padding: 16px 0px;">
 <p style="margin: 0px auto; width: 1356px; max-width: 80%;">Este es un proyecto dirigido por la Universidad del Atlantico</p>
 </div>
 
-<div class="hero-body">
-    <div class="container">
-        <div class="caja_principal">
-            <div class="caja">
-                <div class="login100-form-title" style="background-image: url(img/bg-01.jpg);">
-					<span class="login100-form-title-1">
-						Registrate
-					</span>
-				</div>
-                <form action="" method="post">
-                <div class="box">
-                    <p>Inscríbete y comienza a aprender.</p>
-                <form action="">
-                    <div class="columns"> 
-                    
-                        <div class="column"> 
-                            <!-- <img src="img/undraw_alien_science_nonm.svg" alt=""> -->
-                            <div class="field">
-                                    <label for="" class="label">Nombre</label>
-                                    <input type="text" name="nombre" placeholder="e.g. David" class="input" required>
-                                </div>
-                                <div class="field">
-                                    <label for="" class="label">Ciudad</label>
-                                    <input type="text" name="ciudad" placeholder="e.g. David" class="input" required>
-                                </div>
-                        </div>    
-                        <div class="column">
-                            
-                                
-                                <div class="field">
-                                    <label for="" class="label">Email</label>
-                                    <div class="control has-icons-left">
-                                        <input type="email" name="email" placeholder="e.g. tucorreo@gmail.com" class="input" required>
-                                        <span class="icon is-small is-left">
-                                        <i class="fa fa-envelope"></i>
-                                        </span>
-                                    </div>
-                                </div>
-                                <div class="field">
-                                    <label for="" class="label">Password</label>
-                                    <div class="control has-icons-left">
-                                        <input type="password" name="clave" placeholder="*******" class="input" required>
-                                        <span class="icon is-small is-left">
-                                        <i class="fa fa-lock"></i>
-                                        </span>
-                                    </div>
-                                </div>
+<section class="container">
+      <div class="columns is-multiline">
+        <div class="column is-8 is-offset-2 register">
+          <div class="columns">
+            <div class="column left">
+              <h1 class="title is-1 animate__animated animate__backInLeft">Bienvenido</h1>
+              <h2 class="subtitle colored is-4">Aplicacion para la enseñanza a Sordos</h2>
+              <p>Inscríbete y comienza a aprender</p>
+              <img src="img/undraw_alien_science_nonm.svg" alt="">
+              <!-- <img src="img/acreditacion logo 2019.png" alt=""> -->
+            </div>
+            <div class="column right">
+            <h1 class="title is-4">Registrate</h1>
+            <form>
+                <div class="field">
+                  <div class="control">
+                  <label class="label">Nombre</label>
+                    <input type="text" name="nombre" placeholder="ej. David" class="input" required>
+                  </div>
+                </div>
+                <div class="field">
+                  <div class="control">
+                  <label class="label">Ciudad</label>
+                    <input type="text" name="ciudad" placeholder="ej. Barranquilla" class="input" required>
+                  </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label for="" class="label">Email</label>
+                        <div class="control has-icons-left">
+                            <input type="email" name="email" placeholder="e.g. tucorreo@gmail.com" class="input" required>
+                            <span class="icon is-small is-left">
+                                <i class="fa fa-envelope"></i>
+                            </span>
                         </div>
                     </div>
-
-                                <div class="field is-grouped">
-                                    <div class="control">
-                                        <button class="button is-link" name="Registrar">Entrar </button>
-                                    </div>
-                                    <div class="control">
-                                        <button class="button is-link is-light">Cancelar</button>
-                                    </div>
-                                </div>
-                                <div class="field">
-                                    <p>¿Ya tienes una cuenta? <a href="login2.php">Iniciar sesión</a></p>
-                                </div>
-                                <?php if(isset($_POST['Registrar']))
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <label for="" class="label">Password</label>
+                        <div class="control has-icons-left">
+                            <input type="password" name="clave" placeholder="*******" class="input" required>
+                            <span class="icon is-small is-left">
+                                <i class="fa fa-lock"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <button class="button is-block is-primary is-fullwidth is-medium" name="Registrar">Registrar</button>
+                <br />
+                <small><em>¿Ya tienes una cuenta? <a href="login2.php">Iniciar sesión</a></em></small>
+                <?php if(isset($_POST['Registrar']))
 						{
 							echo $mensaje;
 						
 						} ?>
-                    </form>
-                </div>
+            </form>
             </div>
+          </div>
         </div>
-        <div class="content has-text-centered">
-            <div class="copy">
-                <p><strong>Biology Sings</strong> &copy; 2020 Todos los derechos reservados.<br>
-                Desarrollado por David Perez & Romario Miranda</p>
-            </div>
+        <div class="column is-8 is-offset-2">
+      
+
+          <nav class="level">
+              <small class="level-item" style="color: var(--textLight)">
+                &copy; 2020 Todos los derechos reservados.
+                Desarrollado por David Perez & Romario Miranda
+              </small>
+          </nav>
         </div>
-    </div>
-</div>
-</section>
+      </div>
+    </section>
+
+                            
