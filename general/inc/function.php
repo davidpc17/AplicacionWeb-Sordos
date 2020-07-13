@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 include("tools.php");//inicia la conexion
 //funcion seleccionar
 function select($sql)
