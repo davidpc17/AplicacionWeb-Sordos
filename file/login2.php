@@ -9,54 +9,23 @@ if(isset($_POST['ok']))
   $u =strtolower($_POST['email']);
 
     $p = $_POST['clave'];
-    $sql = "SELECT clave FROM user WHERE email ='$u'";
-  list($a,$asociar,$e)=select($sql);
- 
-  $pass= $asociar['clave'];
- $desencriptar = SED::decryption($pass); // METODO DE DESENCRiptado
-
-
-  $sql1= "SELECT * FROM user WHERE email = '$u'";
-list($a,$asociar,$e)=select($sql1);
-  $comprar = $asociar['id_estado'];
-  echo $comprar;
- if($comprar == 1){
-    if ($p==$desencriptar) {
+$sql = "SELECT clave FROM user WHERE email ='$u'";
+list($a,$asociar,$e)=select($sql);
+$pass= $asociar['clave'];
+$desencriptar = SED::decryption($pass); // METODO DE DESENCRiptado
+if ($p==$desencriptar) {
 header('location:../file/index.php');
 $_SESSION["clave"] = $desencriptar;
 $_SESSION["email"] = $u;
 }else{
 $erro = " <font color='#FF0000'> Usuario o Contraseña no validos";
 }
-}else{
-	header('location:../file/administrator.php');
-}
-
-
 }
 
 
 if(isset($_SESSION["email"]) && isset($_SESSION["clave"])){
-
-	$u = $_SESSION["email"];
-	$p = $_SESSION["clave"];
-    $sql = "SELECT clave FROM user WHERE email ='$u'";
-  list($a,$asociar,$e)=select($sql);
- 
-  $pass= $asociar['clave'];
- $desencriptar = SED::decryption($pass);
-	 $estado = $_SESSION["email"];
-  $sql1= "SELECT * FROM user WHERE email = '$estado'";
-list($a,$asociar,$e)=select($sql1);
-  $comprar = $asociar['id_estado'];
-  echo $comprar;
-  if($comprar == 1){
-    if ($p==$desencriptar) {
 header('location:../file/index.php');
 
-}
-}
-	
 }else{
 
 
@@ -66,7 +35,7 @@ header('location:../file/index.php');
 center; padding: 16px 0px;">
 <p style="margin: 0px auto; width: 1356px; max-width: 80%;">Este es un proyecto dirigido por la Universidad del Atlantico</p>
 </div>
-
+<form action="" method="post">
 <section class="hero is-fullheight">
         <div class="hero-body">
             <div class="container ">
@@ -94,6 +63,12 @@ center; padding: 16px 0px;">
                             <button class="button is-block is-primary is-fullwidth is-medium" name="ok">Entrar
                             <i class="fas fa-sign-in" aria-hidden="true"></i></button>
                         </form>
+                        <?php
+                            if(isset($_POST['ok']))
+                            {
+                                echo $erro;
+                            }
+                        ?>
                         <div class="has-text-grey">– or –</div>
                         <a class="button is-medium is-fullwidth is-size-6" href="">
                             <span class="google-button__icon">
@@ -103,7 +78,7 @@ center; padding: 16px 0px;">
                             </a>
                     </div>
                     <p class="has-text-grey-light has-text-centered">
-                        <a href="register2.php">Registrate</a> &nbsp;·&nbsp;
+                        <a href="register.php">Registrate</a> &nbsp;·&nbsp;
                         <a href="../">¿Olvidaste la Contraseña?</a>
                         BY ©2020
                     </p>

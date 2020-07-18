@@ -50,7 +50,7 @@ list($a,$asociar,$e)=select($sql1);
 		$mail->IsHTML(true);
 		
 
-	if(!$mail->send()) {
+	/*if(!$mail->send()) {
 		
     	$mensaje ="<font color='#FF0000'> usuario no registrado por que el ".$name."direccion de correo no existente por favor corraborar y volver a intentar";
 		echo 'Mailer Error: ' . $mail->ErrorInfo;
@@ -58,15 +58,15 @@ list($a,$asociar,$e)=select($sql1);
     
 		$mensaje ='
 		<div class="alert alert-warning" role="alert">
-		<strong>Intente nuevamente,</strong> este correo ya existe!
+		<strong>Error de servidor,</strong> este correo ya existe!
 	  </div>';
 	 // header("refresh:0; ../file/register.php");
 
-	} else {
+	} else {*/
 		
-    $sql= "INSERT INTO `persona`(`nombre`, `id_ciudad`) VALUES ('$nombre','$ciudad')";
-  ejecutar($sql);
-		$sql = "INSERT INTO `user`(`email`, `clave`) VALUES ('$name','$pass') ";
+   // $sql= "INSERT INTO `persona`(`nombre`, `id_ciudad`) VALUES ('$nombre','$ciudad')";
+  //ejecutar($sql);
+		$sql = "INSERT INTO `user`(`nombre`, `id_ciudad`,`email`, `clave`) VALUES ('$nombre','$ciudad','$name','$pass') ";
 		ejecutar($sql);
 		
   echo '<script language="javascript">alert(">Muy bien! Usuario Registrado satisfatoriamente");</script>';
@@ -82,7 +82,7 @@ list($a,$asociar,$e)=select($sql1);
 	}
 }
 }
-}
+//}
 ?>
 <?php require 'inc/header.php' ?>
 <title>Registro | SordosApp </title>
@@ -92,7 +92,7 @@ list($a,$asociar,$e)=select($sql1);
 center; padding: 16px 0px;">
 <p style="margin: 0px auto; width: 1356px; max-width: 80%;">Este es un proyecto dirigido por la Universidad del Atlantico</p>
 </div>
-
+<form action="" method="post">
 <section class="container">
       <div class="columns is-multiline">
         <div class="column is-8 is-offset-2 register">
@@ -115,8 +115,18 @@ center; padding: 16px 0px;">
                 </div>
                 <div class="field">
                   <div class="control">
-                  <label class="label">Ciudad</label>
-                    <input type="text" name="ciudad" placeholder="ej. Barranquilla" class="input" required>
+                                    <label for="" class="label">Ciudad</label>
+                                    <select id="ciudad" name="ciudad" class="input" required="" >
+                                    <option value="">seleccione</option>
+                                <?php
+                                $sql = "SELECT * FROM ciudad";
+                                $dato = new Tools();
+                                $datos =  $dato -> getArraySQL($sql);
+                                foreach ($datos as $dato) {
+                                echo '<option value="'.$dato['id_ciudad'].'">'.$dato['ciudad'].'</option>';
+                                 }
+                                ?>
+                                 </select>
                   </div>
                 </div>
                 <div class="field">
@@ -144,12 +154,15 @@ center; padding: 16px 0px;">
                 <button class="button is-block is-primary is-fullwidth is-medium" name="Registrar">Registrar</button>
                 <br />
                 <small><em>¿Ya tienes una cuenta? <a href="login2.php">Iniciar sesión</a></em></small>
-                <?php if(isset($_POST['Registrar']))
+               
+            </form>
+            <?php 
+                if(isset($_POST['Registrar']))
 						{
 							echo $mensaje;
 						
-						} ?>
-            </form>
+            } 
+            ?>
             </div>
           </div>
         </div>

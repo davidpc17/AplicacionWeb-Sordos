@@ -128,7 +128,7 @@
         <a class="navbar-item" href="">
         <span class="icon has-text-info">
                     <i class="fa fa-user"></i>
-                  </span>&nbsp; Nombre Persona</a>
+                  </span>&nbsp; <?php echo $_SESSION['email']; ?></a>
         </a>
       <div class="navbar-item is-hoverable">
         <button class="button btn-circle" aria-haspopup="true" aria-controls="dropdown-menu6">
@@ -173,7 +173,7 @@
             </div>
           </a>
           <hr class="navbar-divider">
-          <a class="navbar-item" href="/documentation/overview/start/">
+          <a class="navbar-item" href="../back_end/out.php">
             <div class="level is-mobile">
               <div class="level-left">
                 <div class="level-item">
