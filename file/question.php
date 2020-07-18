@@ -1,5 +1,5 @@
 <?php $page='question';  require 'inc/header.php' ?>
-<title>Preguntas | SordosApp </title>
+<title>Preguntas |  </title>
 
 <?php require 'inc/menu.php' ?>
 <section class="section">
