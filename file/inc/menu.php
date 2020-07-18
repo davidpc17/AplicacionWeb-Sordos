@@ -1,3 +1,6 @@
+<?php
+include('../controller/load.php');
+?>
 <div class="barra_superior">
   <i class="fa fa-bullhorn" aria-hidden="true"></i> 
   <a style="">Este es un proyecto dirigido por la <strong>Universidad del Atlantico.</strong></a>
@@ -129,8 +132,8 @@
         <span class="icon has-text-info">
                     <i class="fa fa-user"></i>
                   </span>&nbsp; <?php 
-                  $u= $_SESSION['email'];
-                  $sql = "SELECT nombre FROM user WHERE email ='$u'";
+                  
+                  $sql = "SELECT nombre FROM user WHERE email ='$SESSION'";
                   list($a,$asociar,$e)=select($sql);
                   $name= $asociar['nombre'];
                   echo ucwords($name)  ;

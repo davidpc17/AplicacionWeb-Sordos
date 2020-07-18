@@ -10,10 +10,6 @@ require_once('../general/inc/SED.php');
 $REGISTER="/back_end/register.php";
 $VALIDAR_LOGIN="../back_end/validar.php";
 
-//DEFINIR TABLAS BD
-$USER = `user`;
-$PERSONA= `persona`;
-
-//CARGAR EMAIL SEGUN NECESIDAD
-$EMAIL_REGISTER ="../back_end/send.php";
+//global
+$SESSION = $_SESSION['email'];
 ?>
