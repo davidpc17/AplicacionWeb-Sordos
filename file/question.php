@@ -83,15 +83,25 @@
                 de Señas Colombiana en los laboratorios para adquirir un aprendizaje
                 significativo para las diferentes temáticas a tratar?</p> 
                 </div>
-                <div class="field">
-                <input class="is-checkradio is-rtl" type="radio" name="pregunta2" checked="checked">
-                <label for="pregunta2">Acuerdo</label>
-                <input class="is-checkradio is-rtl" type="radio" name="pregunta2">
-                <label for="pregunta2">Desacuerdo</label>
+				<div class="field">
+                    <div class="radio_boton">       
+                    <ul>
+                        <li>
+                            <input type="radio" id="opcion1_pregunta2" name="pregun2">
+                            <label for="opcion1_pregunta2">Acuerdo</label>
+                            <div class="check"></div>
+                        </li>
+                        <li>
+                            <input type="radio" id="opcion2_pregunta2" name="pregun2">
+                            <label for="opcion2_pregunta2">Desacuerdo</label>
+                            <div class="check"><div class="inside"></div></div>
+                        </li>  
+                    </ul>
                 </div>
             </div>
         </div>  
     </div>
+	</div>
    
     <input type="button" name="previous" class="previous button is-primary" value="Previo" />
     <input type="button" name="next" class="next button is-info" value="Siguiente" />
@@ -115,14 +125,24 @@
                 <p>¿Cree usted que hay poca población sorda laborando en lo referente a las ciencias?</p> 
                 </div>
                 <div class="field">
-                <input class="is-checkradio is-rtl" type="radio" name="pregunta3">
-                <label for="pregunta3">Acuerdo</label>
-                <input class="is-checkradio is-rtl" type="radio" name="pregunta3">
-                <label for="pregunta3">Desacuerdo</label>
+                    <div class="radio_boton">       
+                    <ul>
+                        <li>
+                            <input type="radio" id="opcion1_pregunta3" name="pregun3">
+                            <label for="opcion1_pregunta3">Acuerdo</label>
+                            <div class="check"></div>
+                        </li>
+                        <li>
+                            <input type="radio" id="opcion2_pregunta3" name="pregun3">
+                            <label for="opcion2_pregunta3">Desacuerdo</label>
+                            <div class="check"><div class="inside"></div></div>
+                        </li>  
+                    </ul>
                 </div>
             </div>
         </div>  
     </div>
+	</div>
     <input type="button" name="previous" class="previous button is-warning" value="Previo" />
     <input type="button" name="next" class="next button is-info" value="Siguiente" />
 </fieldset>
@@ -144,14 +164,24 @@
                 </p> 
                 </div>
                 <div class="field">
-                <input class="is-checkradio is-rtl" type="radio" name="pregunta4">
-                <label for="pregunta4">Acuerdo</label>
-                <input class="is-checkradio is-rtl" type="radio" name="pregunta4">
-                <label for="pregunta4">Desacuerdo</label>
+                    <div class="radio_boton">       
+                    <ul>
+                        <li>
+                            <input type="radio" id="opcion1_pregunta4" name="pregun4">
+                            <label for="opcion1_pregunta4">Acuerdo</label>
+                            <div class="check"></div>
+                        </li>
+                        <li>
+                            <input type="radio" id="opcion2_pregunta4" name="pregun4">
+                            <label for="opcion2_pregunta4">Desacuerdo</label>
+                            <div class="check"><div class="inside"></div></div>
+                        </li>  
+                    </ul>
                 </div>
             </div>
         </div>  
     </div>
+	</div>
     <input type="button" name="previous" class="previous button is-warning" value="Previo" />
     <input type="submit" name="submit" class="submit button is-success" value="Enviar" id="submit_data" />
 </fieldset>
