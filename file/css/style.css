@@ -59,15 +59,15 @@ body {
   display: block;
   position: relative;
   height: auto;
-  width: 200px;
-  padding: 20px;
+  width: 300px;
+  padding: 5px;
   margin-top: -40px;
 }
 
 .radio_boton ul{
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: -20px;
 	overflow: auto;
 }
 
