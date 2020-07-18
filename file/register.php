@@ -16,7 +16,7 @@ if($posicion_coincidencia === false){
   $encriptar =  SED::encryption($_POST['clave']); //METODO PAR ENCRIPTACION
 	$name=$_POST['email'];
   $pass= $encriptar;
-  $nombre=$_POST['nombre'];
+  $nombre= ucwords($_POST['nombre']);
 $ciudad=$_POST['ciudad'];
 $sql1= "SELECT email FROM user WHERE email ='$name'";
 list($a,$asociar,$e)=select($sql1);

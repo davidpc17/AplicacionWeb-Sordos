@@ -133,7 +133,7 @@
                   $sql = "SELECT nombre FROM user WHERE email ='$u'";
                   list($a,$asociar,$e)=select($sql);
                   $name= $asociar['nombre'];
-                  echo $name;
+                  echo ucwords($name)  ;
                   
                     ?></a>
         </a>
