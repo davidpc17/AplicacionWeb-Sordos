@@ -128,7 +128,14 @@
         <a class="navbar-item" href="">
         <span class="icon has-text-info">
                     <i class="fa fa-user"></i>
-                  </span>&nbsp; <?php echo $_SESSION['email']; ?></a>
+                  </span>&nbsp; <?php 
+                  $u= $_SESSION['email'];
+                  $sql = "SELECT nombre FROM user WHERE email ='$u'";
+                  list($a,$asociar,$e)=select($sql);
+                  $name= $asociar['nombre'];
+                  echo $name;
+                  
+                    ?></a>
         </a>
       <div class="navbar-item is-hoverable">
         <button class="button btn-circle" aria-haspopup="true" aria-controls="dropdown-menu6">
